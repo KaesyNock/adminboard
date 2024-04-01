@@ -3,6 +3,8 @@ import { DASHBOARD_TOTAL_COUNTS_QUERY } from '@/graphql/queries'
 import { DashboardTotalCountsQuery } from '@/graphql/types'
 import { useCustom } from '@refinedev/core'
 import { Col, Row } from 'antd'
+import { LatestActivities } from '@/components/home'
+
 
 export const Home = () => {
   const {data, isLoading} = useCustom<DashboardTotalCountsQuery>({
@@ -50,7 +52,8 @@ export const Home = () => {
           sm={24}
           xl={8}
           style={{
-            height: '460px'
+            height: '460px',
+            marginTop: '10px'
           }}
         >
           <UpcomingEvents />
@@ -60,11 +63,22 @@ export const Home = () => {
           sm={24}
           xl={16}
           style={{
-            height: '460px'
+            height: '460px',
+            marginTop: '10px'
           }}
         >
           <DealsChart />
         </Col>
+      </Row>
+      <Row
+        gutter={[32, 32]}
+        style={{
+          marginTop: '32px',
+        }}
+        >
+          <Col xs={24}>
+            <LatestActivities />
+          </Col>
       </Row>
     </div>
   )
